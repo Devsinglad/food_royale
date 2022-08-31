@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:food_royale/Screens/LoginScreen.dart';
+import 'package:food_royale/Screens/Product_overiew_screen.dart';
 import 'package:food_royale/Screens/Splash.dart';
 import 'package:food_royale/Screens/product_detail_screen.dart';
 import 'package:provider/provider.dart';
@@ -56,17 +58,19 @@ class MyApp extends StatelessWidget {
             // or simply save your changes to "hot reload" in a Flutter IDE).
             // Notice that the counter didn't reset back to zero; the application
             // is not restarted.
-            primarySwatch: Colors.purple,
             secondaryHeaderColor: Colors.deepOrange,
-            accentColor: Colors.deepOrange,
-            fontFamily: 'Lato'),
+            fontFamily: 'Lato',
+            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
+                .copyWith(secondary: Colors.deepOrange)),
         home: Splash(),
         routes: {
+          ProductsOverviewScreen.routeName: (ctx) => ProductsOverviewScreen(),
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
           CartScreen.routeName: (ctx) => CartScreen(),
           OrderScreen.routeName: (ctx) => OrderScreen(),
           UserProductsScreen.routeName: (ctx) => UserProductsScreen(),
           EditProductScreen.routeName: (ctx) => EditProductScreen(),
+          LoginScreen.routeName: (ctx) => LoginScreen(),
         },
       ),
     );

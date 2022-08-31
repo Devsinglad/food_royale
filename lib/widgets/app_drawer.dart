@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../Screens/orders_screen.dart';
 import '../Screens/user_products_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key? key}) : super(key: key);
@@ -18,11 +19,11 @@ class AppDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             leading: Icon(
-              Icons.shop,
+              Icons.restaurant,
             ),
-            title: Text('shop'),
+            title: Text('food menu'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed('/');
+              Navigator.of(context).pushReplacementNamed('/product-overview');
             },
           ),
           Divider(),
@@ -45,7 +46,15 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context)
                   .pushReplacementNamed(UserProductsScreen.routeName);
             },
-          )
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('signout'),
+            onTap: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.popAndPushNamed(context, '/Login-screen');
+            },
+          ),
         ],
       ),
     );

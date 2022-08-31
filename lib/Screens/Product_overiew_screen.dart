@@ -15,6 +15,7 @@ enum FilterOptions {
 
 class ProductsOverviewScreen extends StatefulWidget {
   @override
+  static const routeName = '/product-overview';
   _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
 }
 
@@ -48,7 +49,11 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MyShop'),
+        title: Text(
+          'RoyalMandarin',
+          style: TextStyle(fontStyle: FontStyle.italic, color: Colors.green),
+        ),
+        centerTitle: true,
         actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
